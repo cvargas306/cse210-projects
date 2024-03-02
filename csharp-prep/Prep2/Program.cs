@@ -39,7 +39,7 @@ class Program
 
         if (percent >= 70)
         {
-            Console.WriteLine("You approved.");
+            Console.WriteLine("You approved!");
         }
 
         else
