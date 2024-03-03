@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        DisplayWelcomeMessage();
+        DisplayWelcome();
 
         string userName = PromptUserName();
         int userNumber = PromptUserNumber();
@@ -14,7 +14,7 @@ class Program
         DisplayResult(userName, squaredNumber);
     }
 
-    static void DisplayWelcomeMessage()
+    static void DisplayWelcome()
     {
         Console.WriteLine("Welcome to the program!");
     }
