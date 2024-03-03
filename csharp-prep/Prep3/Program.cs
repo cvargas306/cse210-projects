@@ -4,38 +4,39 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("What is the magic number? ");
-        int userNumber = int.Parse(Console.ReadLine()); 
-        
+        //For part 1 I wrote:
+        //Console.WriteLine("What is the magic number? ");
+        //int magicNumber = int.Parse(Console.ReadLine());
+        //I do not consider necesary the first question if I want a guess game.
+
+
         Random random = new Random();
-        int userNumber = random.Next(1,101);
+        int magicNumber = random.Next(1, 101);
 
-        int userGuess = -1;
+        int guess;
 
+        Console.WriteLine("What is your guess? ");
 
-         while (guess != userNumber)
+        do
         {
-            Console.WriteLine("What is your guess?" );
-            string guess = Console.ReadLine();
-            int userGuess = int.Parse(guess);
+            guess = int.Parse(Console.ReadLine());
 
-            if (userNumber > userGuess)
+            if (guess < magicNumber)
             {
                 Console.WriteLine("Higher");
             }
-
-            else if (userNumber > userGuess);
+            
+            else if (guess > magicNumber)
             {
                 Console.WriteLine("Lower");
             }
 
             else
-            {
+            {    
                 Console.WriteLine("You guessed it");
             }
-
-        }
-
-        
+        } while (guess != magicNumber);
     }
+        
+
 }
