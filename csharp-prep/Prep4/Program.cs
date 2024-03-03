@@ -24,17 +24,17 @@ class Program
 
         if (numbers.Count > 0)
         {
-            // Compute the sum of the numbers
+
             int sum = 0;
             foreach (int number in numbers)
             {
                 sum += number;
             }
 
-            // Compute the average of the numbers
+
             double average = (double)sum / numbers.Count;
 
-            // Find the maximum number
+
             int maxNumber = numbers[0];
             foreach (int number in numbers)
             {
