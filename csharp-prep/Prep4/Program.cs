@@ -6,7 +6,7 @@ class Program
     {
          List<int> numbers = new List<int>();
 
-        Console.WriteLine("Enter a list of numbers, (type 0 to quit).");
+        Console.WriteLine("Enter a list of numbers, (type 0 when finished entering numbers).");
 
         int userInput;
 
