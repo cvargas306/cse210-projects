@@ -1,12 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO; //For exceeding requirements I added this using System
 
-public class Program
+public class Program //for exceeding requirements I have modified this class to link a file (scriptures.txt)
 {
     static void Main(string[] args)
     {
-        Scripture scripture = new Scripture("John 3:16", "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.");
+        string[] lines = File.ReadAllLines("scriptures.txt");
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split('|');
+            Scripture scripture = new Scripture(parts[0], parts[1]);
         while (true)
         {
             Console.WriteLine(scripture.ToString());
@@ -15,6 +20,7 @@ public class Program
             if (input.ToLower() == "quit")
                 break;
             scripture.HideRandomWord();
+        }
         }
     }
 }
