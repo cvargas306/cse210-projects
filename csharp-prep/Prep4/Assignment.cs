@@ -14,5 +14,10 @@ public class Assignment
         return $"{_studentName} - {_topic}";
     }
 
+    protected string GetStudentName()
+    {
+        return _studentName;
+    }
+
 
 }
