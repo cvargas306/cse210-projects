@@ -187,6 +187,48 @@ public class ReflectingActivity : Activity
 
 }
 
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        BreathingActivity breathingActivity= new BreathingActivity();
+        ListingActivity listingActivity = new ListingActivity();
+        ReflectingActivity reflectingActivity = new ReflectingActivity();
+
+        while (true)
+        {
+            Console.WriteLine("Menu Options:");
+            Console.WriteLine("1. Start breathing activity");
+            Console.WriteLine("2. Start listing activity");
+            Console.WriteLine("3. Start reflecting activity");
+            Console.WriteLine("4. Quit");
+            Console.Write("Type a number from the menu to choose an option: ");
+
+            string input = Console.ReadLine();
+            switch (input)
+            {
+                case "1":
+                    breathingActivity.Run();
+                    break;
+                case "2":
+                    listingActivity.Run();
+                    break;
+                case "3":
+                    reflectingActivity.Run();
+                    break;
+                case "4":
+                    return; 
+                default:
+                    Console.WriteLine("Invalid option. Please try again.");
+                    break;
+            }
+        
+        }
+
+    }
+
+} 
     
 
 
