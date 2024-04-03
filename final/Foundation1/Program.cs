@@ -1,9 +1,21 @@
 using System;
+using System.Collections.Generic;
 
-class Program
+public class Comment
 {
-    static void Main(string[] args)
+    public string CommneterName {get; set;}
+    public string Text {get; set;}
+}
+
+public class Video
+{
+    public string Title {get; set;}
+    public string Author {get; set;}
+    public int Length {get; set;}
+    public List<Comment> Comments {get; set;}
+
+    public int GetNumbersOfComments()
     {
-        Console.WriteLine("Hello Foundation1 World!");
+        return Comments.Count;
     }
 }
