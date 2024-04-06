@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
+//Check the comments to know the exceeding requirements
+//( Keeping a log of how many times activities were performed)
 
 public abstract class Activity
 {
@@ -23,7 +25,7 @@ public abstract class Activity
     }
 
     public abstract void Run();
-    public void DisplayEndingMessage()
+    public virtual void DisplayEndingMessage()
     {
         Console.WriteLine("You have done a good job!");
         ShowSpinner(2);
@@ -112,23 +114,34 @@ public class ListingActivity : Activity
         Console.WriteLine(prompt);
     }
 
-    private List<string> GetListFromUser()
-    {
-        List<string> list = new List<string>();
-        for (int i = 0; i < _duration; i++)
-        {
-            Console.Write("Enter an item for your list (or 'done' to finish): ");
-            string item = Console.ReadLine();
-            if (string.IsNullOrEmpty(item)|| item.ToLower() == "done")
-            {
-                break;
-            }
-            list.Add(item);
-            
-        }
-        _count = list.Count;
-        return list;
-    }
+     private List<string> GetListFromUser()
+     {
+         List<string> list = new List<string>();
+         DateTime startTime = DateTime.Now;
+         while ((DateTime.Now - startTime).TotalSeconds < _duration)
+         //for (int i = 0; i < _duration; i++)   //I commented these lines to fix the error. I kept the lines to remember what I make before
+         {
+             string item = Console.ReadLine();
+             if (!string.IsNullOrEmpty(item))
+             {
+                list.Add(item);
+                ShowCountDown(1);
+                
+            //  }
+            //  if (i <_duration -1 )
+            //  {
+                //ShowCountDown(1);
+             }
+                  
+         }
+         _count = list.Count;
+         return list;
+     }
+     public override void DisplayEndingMessage()
+     {
+        Console.WriteLine($"You have listed {_count} items.");
+        base.DisplayStartingMessage();
+     }
 }
 
 public class ReflectingActivity : Activity
@@ -192,9 +205,12 @@ public class ReflectingActivity : Activity
 
 class Program
 {
+    static int breathingActivityCount = 0;
+    static int listingActivityCount = 0;
+    static int reflectingActivityCount = 0;
     static void Main(string[] args)
     {
-        BreathingActivity breathingActivity= new BreathingActivity();
+        BreathingActivity breathingActivity= new BreathingActivity(); //I declared 3 integer variables to keep track of the count for each activity.
         ListingActivity listingActivity = new ListingActivity();
         ReflectingActivity reflectingActivity = new ReflectingActivity();
 
@@ -204,7 +220,8 @@ class Program
             Console.WriteLine("1. Start breathing activity");
             Console.WriteLine("2. Start listing activity");
             Console.WriteLine("3. Start reflecting activity");
-            Console.WriteLine("4. Quit");
+            Console.WriteLine("4. Show activity counts"); //Menu modified to add an option to Show activity counts
+            Console.WriteLine("5. Quit");
             Console.Write("Type a number from the menu to choose an option: ");
 
             string input = Console.ReadLine();
@@ -212,14 +229,20 @@ class Program
             {
                 case "1":
                     breathingActivity.Run();
+                    breathingActivityCount++; //Incrementing correspondint count
                     break;
                 case "2":
                     listingActivity.Run();
+                    listingActivityCount++;
                     break;
                 case "3":
                     reflectingActivity.Run();
+                    reflectingActivityCount++;
                     break;
                 case "4":
+                    DisplayActivityCounts();
+                    break;
+                case "5":
                     return; 
                 default:
                     Console.WriteLine("Invalid option. Please try again.");
@@ -229,6 +252,12 @@ class Program
         }
 
     }
+    static void DisplayActivityCounts() //Method added to display the counts
+{
+    Console.WriteLine($"Breathing Activity has been performed {breathingActivityCount} times.");
+    Console.WriteLine($"Listing Activity has been performed {listingActivityCount} times.");
+    Console.WriteLine($"Reflecting Activity has been performed {reflectingActivityCount} times.");
+}
 
 } 
     
