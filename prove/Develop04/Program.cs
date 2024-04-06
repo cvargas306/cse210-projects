@@ -117,12 +117,14 @@ public class ListingActivity : Activity
         List<string> list = new List<string>();
         for (int i = 0; i < _duration; i++)
         {
+            Console.Write("Enter an item for your list (or 'done' to finish): ");
             string item = Console.ReadLine();
-            if (!string.IsNullOrEmpty(item))
+            if (string.IsNullOrEmpty(item)|| item.ToLower() == "done")
             {
-                list.Add(item);
+                break;
             }
-            ShowCountDown(1);
+            list.Add(item);
+            
         }
         _count = list.Count;
         return list;
