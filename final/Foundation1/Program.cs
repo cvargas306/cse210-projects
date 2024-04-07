@@ -33,8 +33,8 @@ class Program
                 Length= 60,
                 Comments= new List<Comment>
                 {
-                    new Comment { CommenterName = "Comment 1", Text = "Interesting" },
-                    new Comment { CommenterName = "Comment 2", Text = "Thanks for sharing!" }
+                    new Comment { CommenterName = "@youtube_user 01", Text = "Interesting" },
+                    new Comment { CommenterName = "@youtube_user 02", Text = "Thanks for sharing!" }
                 }
             },
 
@@ -46,8 +46,9 @@ class Program
                 Length= 110,
                 Comments= new List<Comment>
                 {
-                    new Comment { CommenterName = "Comment 1", Text = "WOW" },
-                    new Comment { CommenterName = "Comment 2", Text = "Nice!" }
+                    new Comment { CommenterName = "@youtube_user 03", Text = "WOW" },
+                    new Comment { CommenterName = "@youtube_user 04", Text = "Nice!" },
+                    new Comment { CommenterName = "@youtube_user 05", Text = "Beautiful!" }
                 }
             },
 
@@ -59,8 +60,8 @@ class Program
                 Length= 240,
                 Comments= new List<Comment>
                 {
-                    new Comment { CommenterName = "Comment 1", Text = "Incredible" },
-                    new Comment { CommenterName = "Comment 2", Text = "I can't believe it!" }
+                    new Comment { CommenterName = "@youtube_user 06", Text = "Incredible" },
+                    new Comment { CommenterName = "@youtube_user 07", Text = "I can't believe it!" }
                 }
             },
 
@@ -72,11 +73,10 @@ class Program
                 Length= 167,
                 Comments= new List<Comment>
                 {
-                    new Comment { CommenterName = "Comment 1", Text = "We need more videos like this!" },
-                    new Comment { CommenterName = "Comment 2", Text = "I've learned a lot with this video" }
+                    new Comment { CommenterName = "@youtube_user 3", Text = "We need more videos like this!" },
+                    new Comment { CommenterName = "@youtube_user 4", Text = "I've learned a lot with this video" }
                 }
-            },
-
+            }
 
 
         };
@@ -85,7 +85,7 @@ class Program
             Console.WriteLine($"Title: {video.Title}, Author: {video.Author}, Length: {video.Length}, Number of comments: {video.GetNumbersOfComments()}");
             foreach (var comment in video.Comments)
             {
-                Console.WriteLine($" Commnet by {comment.CommenterName}:, {comment.Text} ");
+                Console.WriteLine($" Comment by {comment.CommenterName}:, {comment.Text} ");
             }
         }
     }
