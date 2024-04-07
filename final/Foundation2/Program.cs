@@ -64,6 +64,11 @@ public class Order
     {
         return $"{Customer.Name}\n{Customer.Address}";
     }
+
+    public decimal GetShippingCost() //I added this additional method to display the shipping cost
+    {
+        return Customer.LivesInUSA() ? 5 : 35;
+    }
 }
 
 class Program
@@ -135,9 +140,9 @@ class Program
             
         };
 
-        foreach (var order in orders)
+        foreach (var order in orders)  
         {
-            Console.WriteLine($"Order for {order.Customer.Name}:\nTotal Cost: ${order.TotalCost()}\nPacking Label:\n{order.PackingLabel()}\nShipping Label:\n{order.ShippingLabel()}\n");
+            Console.WriteLine($"Order for {order.Customer.Name}:\nShipping Cost: ${order.GetShippingCost()}\nTotal Cost: ${order.TotalCost()}\nPacking Label:\n{order.PackingLabel()}\nShipping Label:\n{order.ShippingLabel()}\n");
         }
     }
 }
