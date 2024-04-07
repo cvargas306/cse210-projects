@@ -31,3 +31,37 @@ public class Address
         return $"{Street}\n{City}, {State}\n{Country}";
     }
 }
+
+public class Customer
+{
+    public string Name {get; set;}
+    
+    public Address Address {get; set;}
+
+    public bool LivesInUSA()
+    {
+        return Address.IsInUSA();
+    }
+}
+
+public class Order
+{
+    public List<Product> Products { get; set; }
+    public Customer Customer { get; set; }
+
+    public decimal TotalCost()
+    {
+        decimal totalCost = Products.Sum(p => p.TotalCost());
+        return totalCost + (Customer.LivesInUSA() ? 5 : 35);
+    }
+
+    public string PackingLabel()
+    {
+        return string.Join("\n", Products.Select(p => $"{p.Name} ({p.ProductId})"));
+    }
+
+    public string ShippingLabel()
+    {
+        return $"{Customer.Name}\n{Customer.Address}";
+    }
+}
