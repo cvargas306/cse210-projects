@@ -61,7 +61,8 @@ class Program
                 Comments= new List<Comment>
                 {
                     new Comment { CommenterName = "@youtube_user 06", Text = "Incredible" },
-                    new Comment { CommenterName = "@youtube_user 07", Text = "I can't believe it!" }
+                    new Comment { CommenterName = "@youtube_user 07", Text = "I can't believe it!" },
+                    new Comment { CommenterName = "@youtube_user 08", Text = "How is it possible?!" }
                 }
             },
 
