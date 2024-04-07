@@ -28,15 +28,57 @@ class Program
         {
             new Video
             {
-                Title= "Video 1",
-                Author= "Author 1",
-                Length= 120,
+                Title= "Video A",
+                Author= "Author A",
+                Length= 60,
                 Comments= new List<Comment>
                 {
-                    new Comment { CommenterName = "User 1", Text = "Great video!" },
-                    new Comment { CommenterName = "User 2", Text = "Thanks for sharing!" }
+                    new Comment { CommenterName = "Comment 1", Text = "Interesting" },
+                    new Comment { CommenterName = "Comment 2", Text = "Thanks for sharing!" }
                 }
             },
+
+            new Video
+            {
+
+                Title= "Video B",
+                Author= "Author B",
+                Length= 110,
+                Comments= new List<Comment>
+                {
+                    new Comment { CommenterName = "Comment 1", Text = "WOW" },
+                    new Comment { CommenterName = "Comment 2", Text = "Nice!" }
+                }
+            },
+
+            new Video
+            {
+
+                Title= "Video C",
+                Author= "Author C",
+                Length= 240,
+                Comments= new List<Comment>
+                {
+                    new Comment { CommenterName = "Comment 1", Text = "Incredible" },
+                    new Comment { CommenterName = "Comment 2", Text = "I can't believe it!" }
+                }
+            },
+
+            new Video
+            {
+
+                Title= "Video D",
+                Author= "Author D",
+                Length= 167,
+                Comments= new List<Comment>
+                {
+                    new Comment { CommenterName = "Comment 1", Text = "We need more videos like this!" },
+                    new Comment { CommenterName = "Comment 2", Text = "I've learned a lot with this video" }
+                }
+            },
+
+
+
         };
         foreach (var video in videos)
         {
