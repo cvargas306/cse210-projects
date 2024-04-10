@@ -24,12 +24,6 @@ class Program
                 Capacity = 100
             },
             // Add more events here...
-        };
-
-        foreach (var event in events)
-        {
-            Console.WriteLine(event.GetFullDetails());
-            Console.WriteLine(event.GetShortDescription());
-        }
+        }; 
     }
 }
