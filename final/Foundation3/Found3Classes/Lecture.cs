@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-
 public class Lecture : Event
 {
     public string SpeakerName { get; set; }

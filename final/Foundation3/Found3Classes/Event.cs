@@ -1,3 +1,4 @@
+using System;
 public abstract class Event
 {
     public string Title {get; set;}
