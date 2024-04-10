@@ -16,6 +16,6 @@ public abstract class Activity
 
     public virtual string GetSummary()
     {
-        return $"{date.ToString("dd MMM yyyy")} {GetType().Name} ({time} min) - Distance: {GetDistance()} units, Speed: {GetSpeed()} units per hour, Pace: {GetPace()} min per unit";
+        return $"{date.ToString("dd MMM yyyy")} {GetType().Name} ({time} min) - Distance: {GetDistance()} km, Speed: {GetSpeed()} kph, Pace: {GetPace()} min per km";
     }
 }
